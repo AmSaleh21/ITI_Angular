@@ -1,0 +1,57 @@
+<div class="container my-5 text-center">
+  <label for="power-pipe-test" class="m-2">power pipe</label>
+  <div id="power-pipe-test">
+    <div class="input-group mb-3">
+      <span class="input-group-text">Base </span>
+      <input type="text" class="form-control" [value]="base" [(ngModel)]="base" aria-label="Sizing example input"
+             aria-describedby="inputGroup-sizing-default">
+      <span class="input-group-text">Power</span>
+      <input type="text" class="form-control" [value]="power" [(ngModel)]="power" aria-label="Sizing example input"
+             aria-describedby="inputGroup-sizing-default">
+    </div>
+    <p>
+      {{ base | powerToX: power}}
+    </p>
+    <hr>
+  </div>
+  <hr/>
+  <label for="string-replace-pipe-test" class="m-2">replace pipe</label>
+  <div id="string-replace-pipe-test">
+    <div class="input-group mb-3">
+      <span class="input-group-text">String</span>
+      <input type="text" class="form-control" [value]="dashedString" [(ngModel)]="dashedString"
+             aria-label="Sizing example input"
+             aria-describedby="inputGroup-sizing-default">
+    </div>
+    <p>
+      {{ dashedString | replaceDashWithSpace}}
+    </p>
+  </div>
+  <hr/>
+  <label for="array-filter-pipe-test" class="m-2">Array filter</label>
+  <div id="array-filter-pipe-test">
+    <div class="input-group mb-3 row ms-0">
+      <span class="input-group-text col-2">Array , spaced</span>
+      <div class="col-10 pe-0">
+        <p-chips [showClear]="tr" class="form-control" [(ngModel)]="names" separator=","></p-chips>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">filter</span>
+      <input type="text" class="form-control" [value]="" [(ngModel)]="filter"
+             aria-label="Sizing example input"
+             aria-describedby="inputGroup-sizing-default">
+    </div>
+    <table class="table table-hover table-info">
+      <th>
+        <tr> names </tr>
+      </th>
+      <tr>
+        <td *ngFor="let item of names | arrayFilter: filter">
+          {{item}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
