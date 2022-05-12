@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PowerToXPipe } from './power-to-x.pipe';
-import { PipeTestsComponent } from './pipe-tests/pipe-tests.component';
 import {FormsModule} from "@angular/forms";
-import { ReplaceDashWithSpacePipe } from './replace-dash-with-space.pipe';
-import { ArrayFilterPipe } from './array-filter.pipe';
+import { PowerToXPipe } from './pipes/power-to-x.pipe';
+import { PipeTestsComponent } from './pipe-tests/pipe-tests.component';
+import { ReplaceDashWithSpacePipe } from './pipes/replace-dash-with-space.pipe';
+import { ArrayFilterPipe } from './pipes/array-filter.pipe';
 import {ChipsModule} from "primeng/chips";
-
+import {RateComponent} from "./rate/rate.component";
+import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 
 @NgModule({
@@ -14,11 +15,15 @@ import {ChipsModule} from "primeng/chips";
     PowerToXPipe,
     PipeTestsComponent,
     ReplaceDashWithSpacePipe,
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    RateComponent,
+    ProductFilterPipe
   ],
   exports: [
     PowerToXPipe,
-    PipeTestsComponent
+    PipeTestsComponent,
+    RateComponent,
+    ProductFilterPipe
   ],
   imports: [
     CommonModule,

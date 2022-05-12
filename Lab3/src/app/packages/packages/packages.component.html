@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="d-flex">
+    <h3>Product List</h3>
+  </div>
+  <div class="d-flex">
+    <span class="input-group-text">Filter by:</span>
+    <input type="text" class="form-control" [value]="" [(ngModel)]="filter" aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default">
+  </div>
+  <table class="table table-borderless m-3 container">
+    <thead>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Product</th>
+    <th>Code</th>
+    <th>Available</th>
+    <th>Price</th>
+    <th>rating</th>
+    </thead>
+    <tbody>
+    <tr >
+      <td>
+        <input #id class="form-control" pInputText type="text" [(ngModel)]="dummyProduct.id">
+      </td>
+      <td>
+        <input #img class="form-control" pInputText type="text" [(ngModel)]="dummyProduct.imagePath">
+      </td>
+      <td>
+        <input #name class="form-control" pInputText type="text" [(ngModel)]="dummyProduct.name">
+      </td>
+      <td>
+        <input #code class="form-control" pInputText type="text" [(ngModel)]="dummyProduct.code">
+      </td>
+      <td>
+        <p-calendar #date [(ngModel)]="dummyProduct.available" dateFormat="yy.mm.dd" icon="pi pi-calendar-plus"></p-calendar>
+      </td>
+      <td>
+        <input #price class="form-control" pInputText type="text" [(ngModel)]="dummyProduct.price">
+      </td>
+      <td>
+        <input #rate class="form-control" pInputText type="text" [(ngModel)]="dummyProduct.rating">
+      </td>
+      <td>
+        <button class="btn btn-success" pButton icon="pi pi-user-edit" *ngIf="isEditing" (click)="save(id.value, name.value, img.value, code.value, date.value, price.value, rate.value)"></button>
+        <button class="btn btn-primary" pButton icon="pi pi-plus-circle" *ngIf="!isEditing" (click)="add(id.value, name.value, img.value, code.value, date.value, price.value, rate.value)"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-hover m-3">
+    <thead>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Product</th>
+    <th>Code</th>
+    <th>Available</th>
+    <th>Price</th>
+    <th>rating</th>
+    <th>actions</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products | productFilterPipe: filter">
+      <td>{{product.id}}</td>
+      <td>
+        <!--          <img [src]="product.imagePath" [alt]="product.name">-->
+        <!--          {{product.imagePath}}-->
+        <button class="btn btn-info fa fa-image" (click)="showImage(product.imagePath)"> show image</button>
+      </td>
+      <td>{{product.name}}</td>
+      <td>{{product.code}}</td>
+      <td>{{product.available | date:"yyyy/MM/dd"}}</td>
+      <td>${{product.price}}</td>
+      <td>
+        <lab3-rate rating={{product.rating}}></lab3-rate>
+      </td>
+      <td>
+        <button class="btn btn-info fa fa-edit mx-1" (click)="edit(product.id)"></button>
+        <button class="btn btn-danger fa fa-ban mx-1" (click)="delete(product.id)"></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

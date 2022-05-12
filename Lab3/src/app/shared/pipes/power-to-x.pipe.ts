@@ -7,7 +7,7 @@ export class PowerToXPipe implements PipeTransform {
 
   transform(value: number, ...args: number[]): unknown {
     let power = Math.pow(value, args[0]);
-    return `${value} to the power of ${args[0]} is ${power}`;
+    return `${value} to the power of ${args[0]} = ${power}`;
   }
 
 }
