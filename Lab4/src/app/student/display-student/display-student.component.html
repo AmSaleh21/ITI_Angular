@@ -1,0 +1,23 @@
+<table class="table table-striped table-dark table-hover m-4 text-center align-middle">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Department Number</th>
+    <th>options</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of studentService.getAllStudents();">
+    <td >{{student.id}}</td>
+    <td >{{student.name}}</td>
+    <td >{{student.age}}</td>
+    <td >{{student.department_number}}</td>
+    <td>
+      <Lab4-delete-student [id]="student.id"></Lab4-delete-student>
+      <Lab4-edit-student [id]="student.id"></Lab4-edit-student>
+    </td>
+  </tr>
+  </tbody>
+</table>
