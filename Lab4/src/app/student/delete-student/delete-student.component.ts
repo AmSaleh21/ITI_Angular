@@ -18,7 +18,7 @@ export class DeleteStudentComponent implements OnInit {
 
   delete(event: Event) {
     this.confirmationService.confirm({
-      target: event.target,
+      target: event.target ?? undefined,
       message: 'Are you sure that you want to proceed?',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
