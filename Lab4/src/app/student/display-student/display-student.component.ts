@@ -11,7 +11,7 @@ export class DisplayStudentComponent implements OnInit {
   constructor(public studentService: StudentService) { }
 
   ngOnInit(): void {
-    console.log(this.studentService.getAllStudents())
+    this.studentService.getLocalStorage();
   }
 
 }

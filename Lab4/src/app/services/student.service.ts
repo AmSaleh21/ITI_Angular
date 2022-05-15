@@ -1,18 +1,25 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Student} from "../_models/student";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-  private students: Student[] = [
-    new Student(1, 'Ali', 24, 2),
-    new Student(2, 'Saleh', 26, 2)
-  ];
-  lastId = 2;
+  private students: Student[] = [];
+  lastId = 0;
   constructor() { }
+
+  public getLocalStorage(){
+    this.students = JSON.parse(localStorage.getItem('students') || '[]');
+  }
+
+  private updateLocalStorage(){
+    localStorage.setItem('students', JSON.stringify(this.students));
+  }
+
   public addNew(name: string, age:number, department_number:number): void {
     this.students.push(new Student(++this.lastId, name, age, department_number));
+    this.updateLocalStorage();
   }
 
   public save(student: Student): void {
@@ -21,10 +28,13 @@ export class StudentService {
 
   public update(editStudent: Student): void {
     this.students.splice(this.getStudentIndexByType(editStudent), 1,editStudent);
+    this.updateLocalStorage();
   }
 
   public remove(id: number): void {
     this.students.splice(this.getStudentIndexByID(id), 1);
+    this.lastId = (--this.lastId <= 0) ? 0 : --this.lastId;
+    this.updateLocalStorage();
   }
 
   getStudentIndexByType(studentToFind: Student): number{
