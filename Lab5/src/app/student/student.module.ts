@@ -10,6 +10,7 @@ import {DialogModule} from "primeng/dialog";
 import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
 import {ConfirmPopupModule} from "primeng/confirmpopup";
+import { StudentComponent } from './student/student.component';
 
 
 
@@ -18,7 +19,8 @@ import {ConfirmPopupModule} from "primeng/confirmpopup";
     CreateStudentComponent,
     DisplayStudentComponent,
     EditStudentComponent,
-    DeleteStudentComponent
+    DeleteStudentComponent,
+    StudentComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +32,7 @@ import {ConfirmPopupModule} from "primeng/confirmpopup";
     ConfirmPopupModule,
   ],
   exports: [
-    CreateStudentComponent,
-    DisplayStudentComponent,
+    StudentComponent
   ]
 })
 export class StudentModule { }

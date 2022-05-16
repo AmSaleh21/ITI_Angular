@@ -10,6 +10,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {ConfirmPopupModule} from "primeng/confirmpopup";
 import {RippleModule} from "primeng/ripple";
 import {FormsModule} from "@angular/forms";
+import { DepartmentComponent } from './department/department.component';
 
 
 
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     CreateDepartmentComponent,
     DeleteDepartmentComponent,
     DisplayDepartmentComponent,
-    EditDepartmentComponent
+    EditDepartmentComponent,
+    DepartmentComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +32,7 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ],
   exports: [
-    CreateDepartmentComponent,
-    DisplayDepartmentComponent
+    DepartmentComponent
   ]
 })
 export class DepartmentModule { }

@@ -10,19 +10,21 @@ import {ConfirmPopupModule} from "primeng/confirmpopup";
 import {ConfirmationService} from "primeng/api";
 
 import {DepartmentModule} from "./department/department.module";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        StudentModule,
-        BrowserAnimationsModule,
-        ConfirmPopupModule,
-        DepartmentModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    StudentModule,
+    BrowserAnimationsModule,
+    ConfirmPopupModule,
+    DepartmentModule,
+    CoreModule
+  ],
   providers: [
     ConfirmationService
   ],
