@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'lab5-root',
   templateUrl: './app.component.html',
